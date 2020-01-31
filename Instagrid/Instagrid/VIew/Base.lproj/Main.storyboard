@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Instagrid" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" customClass="AllView" customModule="Instagrid" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="Instagrid" translatesAutoresizingMaskIntoConstraints="NO" id="hYy-LK-3G5">
+                                <rect key="frame" x="92" y="111" width="231" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yun-BN-ZFw">
+                                <rect key="frame" x="67" y="700" width="80" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <inset key="contentEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="18"/>
+                                <state key="normal" backgroundImage="Layout 1"/>
+                                <connections>
+                                    <action selector="selectedButton1:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fEB-3b-6WG"/>
+                                    <outletCollection property="gestureRecognizers" destination="wPF-fv-n0w" appends="YES" id="A51-fM-1iF"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dzd-Sd-1pr">
+                                <rect key="frame" x="167" y="700" width="80" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <inset key="contentEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="18"/>
+                                <state key="normal" backgroundImage="Layout 2"/>
+                                <connections>
+                                    <action selector="selectedButton2:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ybE-ka-mLp"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nRH-Lo-aG8">
+                                <rect key="frame" x="267" y="700" width="80" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <inset key="contentEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="18"/>
+                                <state key="normal" backgroundImage="Layout 3"/>
+                                <connections>
+                                    <action selector="selectedButton3:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5ux-VM-XzP"/>
+                                </connections>
+                            </button>
+                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="Selected" translatesAutoresizingMaskIntoConstraints="NO" id="C1W-1R-wV4">
+                                <rect key="frame" x="67" y="700" width="80" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="Selected" translatesAutoresizingMaskIntoConstraints="NO" id="GFb-NW-iSb">
+                                <rect key="frame" x="167" y="700" width="80" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="Selected" translatesAutoresizingMaskIntoConstraints="NO" id="OYI-pl-X7X">
+                                <rect key="frame" x="267" y="700" width="80" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aMs-m6-UGK" customClass="GridView" customModule="Instagrid" customModuleProvider="target">
+                                <rect key="frame" x="57" y="298" width="300" height="300"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Nd-FN-EVq">
+                                        <rect key="frame" x="15" y="15" width="127.5" height="127.5"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.84705311059999999" green="0.84705334899999996" blue="0.84705179929999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="tintColor" red="0.84705311059999999" green="0.84705334899999996" blue="0.84705179929999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="7"/>
+                                        <state key="normal" image="Plus"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N0x-He-CUP">
+                                        <rect key="frame" x="155" y="15" width="127.5" height="127.5"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.84705311059999999" green="0.84705334899999996" blue="0.84705179929999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="tintColor" red="0.84705311059999999" green="0.84705334899999996" blue="0.84705179929999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="7"/>
+                                        <state key="normal" image="Plus"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1LU-9e-zH5">
+                                        <rect key="frame" x="15" y="158" width="127.5" height="127.5"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.84705311059999999" green="0.84705334899999996" blue="0.84705179929999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="tintColor" red="0.84705311059999999" green="0.84705334899999996" blue="0.84705179929999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="7"/>
+                                        <state key="normal" image="Plus"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gHR-bn-RxQ">
+                                        <rect key="frame" x="155" y="158" width="127.5" height="127.5"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.84705311059999999" green="0.84705334899999996" blue="0.84705179929999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="tintColor" red="0.84705311059999999" green="0.84705334899999996" blue="0.84705179929999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="7"/>
+                                        <state key="normal" image="Plus"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.063258685169999995" green="0.39806914329999998" blue="0.59610205890000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <connections>
+                                    <outlet property="button1" destination="4Nd-FN-EVq" id="Xp0-aF-cDs"/>
+                                    <outlet property="button2" destination="N0x-He-CUP" id="kLc-HX-1vU"/>
+                                    <outlet property="button3" destination="1LU-9e-zH5" id="rkl-pL-fPN"/>
+                                    <outlet property="button4" destination="gHR-bn-RxQ" id="dhl-0T-XMl"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.71768075229999995" green="0.84266638760000001" blue="0.8980433941" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <connections>
+                            <outlet property="selected1" destination="C1W-1R-wV4" id="NOv-po-tWj"/>
+                            <outlet property="selected2" destination="GFb-NW-iSb" id="DOf-Vz-HRI"/>
+                            <outlet property="selected3" destination="OYI-pl-X7X" id="0Nj-3N-ZbB"/>
+                        </connections>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="wPF-fv-n0w"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="137.94642857142856"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Instagrid" width="41.5" height="13"/>
+        <image name="Layout 1" width="27" height="27"/>
+        <image name="Layout 2" width="27" height="27"/>
+        <image name="Layout 3" width="27" height="27"/>
+        <image name="Plus" width="13.5" height="13.5"/>
+        <image name="Selected" width="27" height="27"/>
+    </resources>
+</document>

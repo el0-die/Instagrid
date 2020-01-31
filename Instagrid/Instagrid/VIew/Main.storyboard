@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Instagrid" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="29" translatesAutoresizingMaskIntoConstraints="NO" id="H2T-is-8Ht">
+                                <rect key="frame" x="58" y="762" width="298" height="80"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gB3-QT-fqS" userLabel="LayoutButton1">
+                                        <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="ARb-M2-Qwq"/>
+                                            <constraint firstAttribute="width" constant="80" id="wp2-P9-8AU"/>
+                                        </constraints>
+                                        <state key="normal" backgroundImage="Layout 1"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K5R-RF-otS" userLabel="LayoutButton2">
+                                        <rect key="frame" x="109" y="0.0" width="80" height="80"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="Z0M-4g-6jk"/>
+                                            <constraint firstAttribute="width" constant="80" id="f7f-E4-42y"/>
+                                        </constraints>
+                                        <state key="normal" backgroundImage="Layout 2"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mXp-GZ-rN2" userLabel="LayoutButton3">
+                                        <rect key="frame" x="218" y="0.0" width="80" height="80"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="XcE-nc-xCI"/>
+                                            <constraint firstAttribute="width" constant="80" id="fK2-r4-zsz"/>
+                                        </constraints>
+                                        <state key="normal" backgroundImage="Layout 3"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w5L-i8-9wJ" userLabel="CentralView">
+                                <rect key="frame" x="32" y="273" width="350" height="350"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="2kM-jc-085">
+                                        <rect key="frame" x="15" y="185" width="320" height="150"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fvd-VH-cX2" userLabel="AddButton3">
+                                                <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                                <color key="backgroundColor" red="0.84705311059999999" green="0.84705334899999996" blue="0.84705179929999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="Fvd-VH-cX2" secondAttribute="height" multiplier="1:1" id="P9j-Cn-l3x"/>
+                                                </constraints>
+                                                <state key="normal" image="Plus"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rdf-Uq-TTh" userLabel="AddButton4">
+                                                <rect key="frame" x="170" y="0.0" width="150" height="150"/>
+                                                <color key="backgroundColor" red="0.84705311059999999" green="0.84705334899999996" blue="0.84705179929999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="rdf-Uq-TTh" secondAttribute="height" multiplier="1:1" id="mSx-1f-Z0X"/>
+                                                </constraints>
+                                                <state key="normal" image="Plus"/>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="2kM-jc-085" secondAttribute="height" multiplier="32:15" id="fC3-Qu-bmw"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="o5V-0N-tuY">
+                                        <rect key="frame" x="15" y="15" width="320" height="150"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dgX-F3-qsJ" userLabel="AddButton1">
+                                                <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                                <color key="backgroundColor" red="0.84705311059999999" green="0.84705334899999996" blue="0.84705179929999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="dgX-F3-qsJ" secondAttribute="height" multiplier="1:1" id="Mer-BP-u3I"/>
+                                                </constraints>
+                                                <state key="normal" image="Plus"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Z1-zJ-5Cv" userLabel="AddButton2">
+                                                <rect key="frame" x="170" y="0.0" width="150" height="150"/>
+                                                <color key="backgroundColor" red="0.84705311059999999" green="0.84705334899999996" blue="0.84705179929999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="4Z1-zJ-5Cv" secondAttribute="height" multiplier="1:1" id="kMx-wh-SAq"/>
+                                                </constraints>
+                                                <state key="normal" image="Plus"/>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="o5V-0N-tuY" secondAttribute="height" multiplier="32:15" id="ceW-9n-d0t"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.063258685169999995" green="0.39806914329999998" blue="0.59610205890000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstItem="o5V-0N-tuY" firstAttribute="leading" secondItem="w5L-i8-9wJ" secondAttribute="leading" constant="15" id="Cia-me-9v6"/>
+                                    <constraint firstAttribute="trailing" secondItem="o5V-0N-tuY" secondAttribute="trailing" constant="15" id="EW2-40-IWv"/>
+                                    <constraint firstItem="o5V-0N-tuY" firstAttribute="top" secondItem="w5L-i8-9wJ" secondAttribute="top" constant="15" id="InS-JW-9z6"/>
+                                    <constraint firstAttribute="trailing" secondItem="2kM-jc-085" secondAttribute="trailing" constant="15" id="TsJ-e0-154"/>
+                                    <constraint firstItem="2kM-jc-085" firstAttribute="leading" secondItem="w5L-i8-9wJ" secondAttribute="leading" constant="15" id="ds9-Nm-RSr"/>
+                                    <constraint firstAttribute="width" secondItem="w5L-i8-9wJ" secondAttribute="height" multiplier="1:1" id="wsO-5g-OFk"/>
+                                    <constraint firstAttribute="bottom" secondItem="2kM-jc-085" secondAttribute="bottom" constant="15" id="yyJ-dx-cW9"/>
+                                </constraints>
+                            </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Selected" translatesAutoresizingMaskIntoConstraints="NO" id="JWq-pt-DAa" userLabel="Selected1">
+                                <rect key="frame" x="57" y="762" width="80" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="H7i-mg-ceg"/>
+                                    <constraint firstAttribute="width" constant="80" id="z17-ub-hgE"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Selected" translatesAutoresizingMaskIntoConstraints="NO" id="OLP-Rz-hLH" userLabel="Selected2">
+                                <rect key="frame" x="167" y="762" width="80" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="ac2-fx-ab8"/>
+                                    <constraint firstAttribute="width" constant="80" id="x16-nV-eAf"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Selected" translatesAutoresizingMaskIntoConstraints="NO" id="u7k-Kn-uHB" userLabel="Selected3">
+                                <rect key="frame" x="277" y="762" width="80" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="9rM-BY-bJd"/>
+                                    <constraint firstAttribute="width" constant="80" id="kzb-CD-5ov"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.71768075229999995" green="0.84266638760000001" blue="0.8980433941" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="OLP-Rz-hLH" firstAttribute="leading" secondItem="JWq-pt-DAa" secondAttribute="trailing" constant="30" id="2gr-KU-y1X"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="H2T-is-8Ht" secondAttribute="bottom" constant="20" id="5JY-FX-Aog"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="OLP-Rz-hLH" secondAttribute="bottom" constant="20" id="9P8-y3-PGB"/>
+                            <constraint firstItem="w5L-i8-9wJ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="J8h-nd-4FK"/>
+                            <constraint firstItem="u7k-Kn-uHB" firstAttribute="leading" secondItem="OLP-Rz-hLH" secondAttribute="trailing" constant="30" id="Kwu-QZ-HjO"/>
+                            <constraint firstItem="w5L-i8-9wJ" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="XJ5-96-TxC"/>
+                            <constraint firstItem="OLP-Rz-hLH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="biq-Zu-1gD"/>
+                            <constraint firstItem="w5L-i8-9wJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="eYI-QM-di6"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="w5L-i8-9wJ" secondAttribute="trailing" constant="32" id="nrF-ol-bdH"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="JWq-pt-DAa" secondAttribute="bottom" constant="20" id="oMO-fh-318"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="u7k-Kn-uHB" secondAttribute="bottom" constant="20" id="pec-u7-seR"/>
+                            <constraint firstItem="H2T-is-8Ht" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="qeI-qH-fcf"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="128.57142857142856"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Layout 1" width="27" height="27"/>
+        <image name="Layout 2" width="27" height="27"/>
+        <image name="Layout 3" width="27" height="27"/>
+        <image name="Plus" width="13.5" height="13.5"/>
+        <image name="Selected" width="27" height="27"/>
+    </resources>
+</document>
