@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Delm-Medium.otf">
+            <string>Delm-Medium</string>
+        </array>
+        <array key="ThirstySoftRegular.otf">
+            <string>ThirstySoftRegular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -145,22 +153,118 @@
                                     <constraint firstItem="OLP-Rz-hLH" firstAttribute="width" secondItem="JWq-pt-DAa" secondAttribute="width" id="wS8-D3-u66"/>
                                 </constraints>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instagrid" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cWn-QD-Nsn">
+                                <rect key="frame" x="137" y="54" width="140" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="140" id="6ST-mu-n0t"/>
+                                    <constraint firstAttribute="height" constant="44" id="QU1-kh-3jl"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ThirstySoftRegular" family="Thirsty Soft" pointSize="34"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="6ST-mu-n0t"/>
+                                        <exclude reference="QU1-kh-3jl"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular">
+                                    <mask key="constraints">
+                                        <include reference="6ST-mu-n0t"/>
+                                        <include reference="QU1-kh-3jl"/>
+                                    </mask>
+                                </variation>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="4j5-67-7dP">
+                                <rect key="frame" x="123.5" y="197" width="167" height="68"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Arrow Up" translatesAutoresizingMaskIntoConstraints="NO" id="Bfk-DN-bGe">
+                                        <rect key="frame" x="76" y="0.0" width="15" height="15"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="20" id="mat-YQ-3ed">
+                                                <variation key="heightClass=regular" constant="15"/>
+                                            </constraint>
+                                            <constraint firstAttribute="height" constant="20" id="qD0-Z9-zQk">
+                                                <variation key="heightClass=regular" constant="15"/>
+                                            </constraint>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="mat-YQ-3ed"/>
+                                                <exclude reference="qD0-Z9-zQk"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="heightClass=regular">
+                                            <mask key="constraints">
+                                                <include reference="mat-YQ-3ed"/>
+                                                <include reference="qD0-Z9-zQk"/>
+                                            </mask>
+                                        </variation>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe up to share" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bKd-a7-s3g">
+                                        <rect key="frame" x="0.0" y="23" width="167" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="166" id="CpR-xH-Uvw">
+                                                <variation key="heightClass=regular" constant="167"/>
+                                            </constraint>
+                                            <constraint firstAttribute="height" constant="45" id="xYs-5I-MQ5"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Delm-Medium" family="Delm" pointSize="27"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="CpR-xH-Uvw"/>
+                                                <exclude reference="xYs-5I-MQ5"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="heightClass=regular">
+                                            <mask key="constraints">
+                                                <include reference="CpR-xH-Uvw"/>
+                                                <include reference="xYs-5I-MQ5"/>
+                                            </mask>
+                                        </variation>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.71768075229999995" green="0.84266638760000001" blue="0.8980433941" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
+                            <constraint firstItem="w5L-i8-9wJ" firstAttribute="top" secondItem="4j5-67-7dP" secondAttribute="bottom" constant="8" symbolic="YES" id="3b2-RG-2mz"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="H2T-is-8Ht" secondAttribute="bottom" constant="20" id="5JY-FX-Aog"/>
                             <constraint firstItem="20e-3R-swN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="57" id="7Td-ef-HG0"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="20e-3R-swN" secondAttribute="bottom" constant="20" id="8Rx-F8-9cq"/>
+                            <constraint firstItem="cWn-QD-Nsn" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="CLe-dV-6Wh"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="H2T-is-8Ht" secondAttribute="trailing" constant="57" id="H7D-hW-MKA"/>
                             <constraint firstItem="w5L-i8-9wJ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="J8h-nd-4FK"/>
                             <constraint firstItem="H2T-is-8Ht" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="57" id="QrI-Ph-cpl"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="20e-3R-swN" secondAttribute="trailing" constant="57" id="UVC-1w-CvC"/>
                             <constraint firstItem="w5L-i8-9wJ" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="XJ5-96-TxC"/>
                             <constraint firstItem="w5L-i8-9wJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="eYI-QM-di6"/>
+                            <constraint firstItem="cWn-QD-Nsn" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hXd-VM-CBs"/>
+                            <constraint firstItem="4j5-67-7dP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="jRP-uH-yYa"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="w5L-i8-9wJ" secondAttribute="trailing" constant="32" id="nrF-ol-bdH"/>
                             <constraint firstItem="H2T-is-8Ht" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="qeI-qH-fcf"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="cWn-QD-Nsn"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="CLe-dV-6Wh"/>
+                                <exclude reference="hXd-VM-CBs"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular">
+                            <mask key="subviews">
+                                <include reference="cWn-QD-Nsn"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="CLe-dV-6Wh"/>
+                                <include reference="hXd-VM-CBs"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -169,6 +273,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Arrow Up" width="4.5" height="3.5"/>
         <image name="Layout 1" width="27" height="27"/>
         <image name="Layout 2" width="27" height="27"/>
         <image name="Layout 3" width="27" height="27"/>
