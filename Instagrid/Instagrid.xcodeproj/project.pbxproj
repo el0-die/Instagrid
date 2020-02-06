@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D505C0C23EC930500A604E6 /* CentralView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D505C0B23EC930500A604E6 /* CentralView.swift */; };
 		5D82D44E23E1EB85009402DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D82D44D23E1EB85009402DA /* AppDelegate.swift */; };
 		5D82D45023E1EB85009402DA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D82D44F23E1EB85009402DA /* SceneDelegate.swift */; };
 		5D82D45223E1EB85009402DA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D82D45123E1EB85009402DA /* ViewController.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5D505C0B23EC930500A604E6 /* CentralView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CentralView.swift; sourceTree = "<group>"; };
 		5D82D44A23E1EB85009402DA /* Instagrid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instagrid.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D82D44D23E1EB85009402DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5D82D44F23E1EB85009402DA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				5D82D46B23E207DA009402DA /* Main.storyboard */,
+				5D505C0B23EC930500A604E6 /* CentralView.swift */,
 			);
 			path = VIew;
 			sourceTree = "<group>";
@@ -182,6 +185,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D505C0C23EC930500A604E6 /* CentralView.swift in Sources */,
 				5D82D45223E1EB85009402DA /* ViewController.swift in Sources */,
 				5D82D44E23E1EB85009402DA /* AppDelegate.swift in Sources */,
 				5D82D45023E1EB85009402DA /* SceneDelegate.swift in Sources */,
@@ -322,6 +326,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Instagrid/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -329,7 +334,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = desmoulin.elodie.Instagrid;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -339,6 +344,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Instagrid/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -346,7 +352,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = desmoulin.elodie.Instagrid;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
