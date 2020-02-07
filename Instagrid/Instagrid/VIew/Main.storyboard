@@ -237,12 +237,12 @@
                         </variation>
                     </view>
                     <connections>
-                        <outlet property="centralView" destination="w5L-i8-9wJ" id="WbZ-kR-dKl"/>
+                        <outlet property="centralView" destination="w5L-i8-9wJ" id="hWD-2E-GmF"/>
                         <outlet property="layoutButton1" destination="gB3-QT-fqS" id="jTM-Cm-utm"/>
                         <outlet property="layoutButton2" destination="K5R-RF-otS" id="735-sb-ITN"/>
                         <outlet property="layoutButton3" destination="mXp-GZ-rN2" id="7kl-xd-hLj"/>
                         <outlet property="swipeText" destination="bKd-a7-s3g" id="ZiO-wc-dmj"/>
-                        <outletCollection property="allLayoutButtons" destination="gB3-QT-fqS" collectionClass="NSMutableArray" id="EFF-y4-ZtS"/>
+                        <outletCollection property="CentralView" destination="w5L-i8-9wJ" collectionClass="NSMutableArray" id="454-9t-GsC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

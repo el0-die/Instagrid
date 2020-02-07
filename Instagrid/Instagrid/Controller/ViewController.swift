@@ -14,8 +14,6 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var centralView: CentralView!
     
-    @IBOutlet var allLayoutButtons: [UIButton]!
-    
     @IBOutlet weak var layoutButton1: UIButton!
     @IBOutlet weak var layoutButton2: UIButton!
     @IBOutlet weak var layoutButton3: UIButton!
@@ -26,7 +24,6 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
     // Swipe in Portrait Mode
         let swipeUpGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(swipeCentralView(_:)))
         centralView.addGestureRecognizer(swipeUpGestureRecognizer)
@@ -46,25 +43,29 @@ class ViewController: UIViewController {
     
 // MARK: - Layout Button
     
-    
-    @IBAction func tappedLayoutButton(_ sender: UIButton) {
-        switch sender {
+    @IBAction func tappedLayoutButton(_ button: UIButton) {
+        switch button {
             case layoutButton1:
                 layoutButton1.setImage(UIImage(named: "Selected"), for: .normal)
                 layoutButton2.setImage(nil, for: .normal)
                 layoutButton3.setImage(nil, for: .normal)
+            // Adjust CentralView on 1st Layout
+                centralView.layout = .topRectangle
             case layoutButton2:
                 layoutButton1.setImage(nil, for: .normal)
                 layoutButton2.setImage(UIImage(named: "Selected"), for: .normal)
                 layoutButton3.setImage(nil, for: .normal)
+            // Adjust CentralView on 2nd Layout
+                centralView.layout = .bottomRectangle
             case layoutButton3:
                 layoutButton1.setImage(nil, for: .normal)
                 layoutButton2.setImage(nil, for: .normal)
                 layoutButton3.setImage(UIImage(named: "Selected"), for: .normal)
+            // Adjust CentralView on 3rd Layout
+                centralView.layout = .fourSquare
             default:
                 break
-            }
-
+        }
     }
 }
 

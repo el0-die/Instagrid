@@ -12,8 +12,6 @@ import UIKit
 
 class CentralView: UIView {
     
-
-    
     @IBOutlet var addButton1: UIButton!
     @IBOutlet var addButton2: UIButton!
     @IBOutlet var addButton3: UIButton!
@@ -29,16 +27,22 @@ class CentralView: UIView {
         }
     }
     
-    private func setLayout(_ layout:Layout) {
+    func setLayout(_ layout:Layout) {
         switch layout {
         case .topRectangle:
-            addButton2.isHidden = true
             addButton1.isHidden = false
-        case .bottomRectangle:
-            addButton4.isHidden = true
+            addButton2.isHidden = true
             addButton3.isHidden = false
-        case .fourSquare :
+            addButton4.isHidden = false
+        case .bottomRectangle:
+            addButton1.isHidden = false
             addButton2.isHidden = false
+            addButton3.isHidden = false
+            addButton4.isHidden = true
+        case .fourSquare :
+            addButton1.isHidden = false
+            addButton2.isHidden = false
+            addButton3.isHidden = false
             addButton4.isHidden = false
         }
     }
