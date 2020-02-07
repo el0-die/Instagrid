@@ -23,7 +23,7 @@ class CentralView: UIView {
         case topRectangle, bottomRectangle, fourSquare
     }
     
-    var layout: Layout = .bottomRectangle {
+    var layout: Layout = .fourSquare {
         didSet{
             setLayout(layout)
         }

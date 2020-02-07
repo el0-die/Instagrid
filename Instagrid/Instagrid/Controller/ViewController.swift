@@ -10,58 +10,62 @@ import UIKit
 
 class ViewController: UIViewController {
 
+// MARK: - Outlets
 
+    @IBOutlet weak var centralView: CentralView!
+    
+    @IBOutlet var allLayoutButtons: [UIButton]!
+    
+    @IBOutlet weak var layoutButton1: UIButton!
+    @IBOutlet weak var layoutButton2: UIButton!
+    @IBOutlet weak var layoutButton3: UIButton!
+    
+    @IBOutlet weak var swipeText: UILabel!
+    
+// MARK: - App Running
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+    
+    // Swipe in Portrait Mode
+        let swipeUpGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(swipeCentralView(_:)))
+        centralView.addGestureRecognizer(swipeUpGestureRecognizer)
+        
+            swipeUpGestureRecognizer.direction = .up
+        
+    //Swipe in Landscape Mode
+        let swipeLeftGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(swipeCentralView(_:)))
+        centralView.addGestureRecognizer(swipeLeftGestureRecognizer)
+        
+            swipeLeftGestureRecognizer.direction = .left
     }
     
-// MARK: - Outlets
-    @IBOutlet var centralView: CentralView!
+    @objc func swipeCentralView(_ sender: UISwipeGestureRecognizer) {
+        
+    }
     
-    @IBOutlet var layoutButton1: UIButton!
-    @IBOutlet var layoutButton2: UIButton!
-    @IBOutlet var layoutButton3: UIButton!
+// MARK: - Layout Button
     
-    @IBOutlet var selected1: UIImageView!
-    @IBOutlet var selected2: UIImageView!
-    @IBOutlet var selected3: UIImageView!
-
-    @IBOutlet var allLayoutButtons: [UIButton]!
-    
-    
-    //    @IBOutlet weak var allLayoutButtons: UIStackView!
     
     @IBAction func tappedLayoutButton(_ sender: UIButton) {
-        if sender.isSelected {
-            newLayoutSelected(sender)
-        }
+        switch sender {
+            case layoutButton1:
+                layoutButton1.setImage(UIImage(named: "Selected"), for: .normal)
+                layoutButton2.setImage(nil, for: .normal)
+                layoutButton3.setImage(nil, for: .normal)
+            case layoutButton2:
+                layoutButton1.setImage(nil, for: .normal)
+                layoutButton2.setImage(UIImage(named: "Selected"), for: .normal)
+                layoutButton3.setImage(nil, for: .normal)
+            case layoutButton3:
+                layoutButton1.setImage(nil, for: .normal)
+                layoutButton2.setImage(nil, for: .normal)
+                layoutButton3.setImage(UIImage(named: "Selected"), for: .normal)
+            default:
+                break
+            }
+
     }
-    
-    private func newLayoutSelected(_ button: UIButton) {
-           button.isSelected = true
-           switch button {
-           case layoutButton1:
-                centralView.layout = .topRectangle
-                selected1.isHidden = false
-                selected2.isHidden = true
-                selected3.isHidden = true
-           case layoutButton2:
-                centralView.layout = .bottomRectangle
-                selected1.isHidden = true
-                selected2.isHidden = false
-                selected3.isHidden = true
-           case layoutButton3:
-                centralView.layout = .fourSquare
-                selected1.isHidden = true
-                selected2.isHidden = true
-                selected3.isHidden = false
-           default:
-               break
-           }
-       }
-    
 }
 
 

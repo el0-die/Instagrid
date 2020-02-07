@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
@@ -21,11 +21,11 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Instagrid" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" userLabel="AllView">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instagrid" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cWn-QD-Nsn">
-                                <rect key="frame" x="120.5" y="10" width="134.5" height="44"/>
+                                <rect key="frame" x="140" y="54" width="134.33333333333337" height="44"/>
                                 <fontDescription key="fontDescription" name="ThirstySoftRegular" family="Thirsty Soft" pointSize="34"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -34,10 +34,10 @@
                                 </variation>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="4j5-67-7dP" userLabel="Swipe Stack View">
-                                <rect key="frame" x="104.5" y="117" width="166.5" height="53"/>
+                                <rect key="frame" x="124.00000000000001" y="212" width="166.33333333333337" height="53"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Arrow Up" translatesAutoresizingMaskIntoConstraints="NO" id="Bfk-DN-bGe">
-                                        <rect key="frame" x="75.5" y="0.0" width="15" height="15"/>
+                                        <rect key="frame" x="75.666666666666657" y="0.0" width="15" height="15"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="20" id="mat-YQ-3ed">
                                                 <variation key="heightClass=regular" constant="15"/>
@@ -49,17 +49,17 @@
                                         <variation key="heightClass=compact" image="Arrow Left"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe up to share" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bKd-a7-s3g">
-                                        <rect key="frame" x="0.0" y="23" width="166.5" height="30"/>
+                                        <rect key="frame" x="0.0" y="23" width="166.33333333333334" height="30"/>
                                         <fontDescription key="fontDescription" name="Delm-Medium" family="Delm" pointSize="27"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="H2T-is-8Ht" userLabel="Layout Button Stack View">
-                                <rect key="frame" x="59.5" y="567" width="256" height="80"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="H2T-is-8Ht" userLabel="Layout Button Stack View">
+                                <rect key="frame" x="69" y="762" width="276" height="80"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gB3-QT-fqS" userLabel="LayoutButton1">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gB3-QT-fqS" userLabel="LayoutButton1">
                                         <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="80" id="01f-05-VhM"/>
@@ -78,16 +78,22 @@
                                             </mask>
                                         </variation>
                                         <connections>
-                                            <action selector="tappedLayoutButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9FY-l9-6MD"/>
+                                            <action selector="tappedLayoutButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iDG-yi-Suv"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K5R-RF-otS" userLabel="LayoutButton2">
-                                        <rect key="frame" x="88" y="0.0" width="80" height="80"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K5R-RF-otS" userLabel="LayoutButton2">
+                                        <rect key="frame" x="98" y="0.0" width="80" height="80"/>
                                         <state key="normal" backgroundImage="Layout 2"/>
+                                        <connections>
+                                            <action selector="tappedLayoutButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="C9c-aB-ppc"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mXp-GZ-rN2" userLabel="LayoutButton3">
-                                        <rect key="frame" x="176" y="0.0" width="80" height="80"/>
-                                        <state key="normal" image="Selected" backgroundImage="Layout 3"/>
+                                        <rect key="frame" x="196" y="0.0" width="80" height="80"/>
+                                        <state key="normal" backgroundImage="Layout 3"/>
+                                        <connections>
+                                            <action selector="tappedLayoutButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hfa-FJ-0Sd"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -99,7 +105,7 @@
                                         <exclude reference="PLA-R0-c7A"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=compact" axis="vertical" spacing="18">
+                                <variation key="heightClass=compact" axis="vertical">
                                     <mask key="constraints">
                                         <exclude reference="8p4-QH-J3l"/>
                                         <include reference="PLA-R0-c7A"/>
@@ -107,36 +113,36 @@
                                 </variation>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w5L-i8-9wJ" userLabel="CentralView" customClass="CentralView" customModule="Instagrid" customModuleProvider="target">
-                                <rect key="frame" x="32" y="178" width="311" height="311"/>
+                                <rect key="frame" x="32" y="273" width="350" height="350"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="W0e-0x-003">
-                                        <rect key="frame" x="8" y="8" width="295" height="295"/>
+                                        <rect key="frame" x="8" y="8" width="334" height="334"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="o5V-0N-tuY" userLabel="Top Stack View">
-                                                <rect key="frame" x="0.0" y="0.0" width="295" height="143.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="334" height="163"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dgX-F3-qsJ" userLabel="AddButton1">
-                                                        <rect key="frame" x="0.0" y="0.0" width="143.5" height="143.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="163" height="163"/>
                                                         <color key="backgroundColor" red="0.84705311059999999" green="0.84705334899999996" blue="0.84705179929999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <state key="normal" image="Plus"/>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Z1-zJ-5Cv" userLabel="AddButton2">
-                                                        <rect key="frame" x="151.5" y="0.0" width="143.5" height="143.5"/>
+                                                        <rect key="frame" x="171" y="0.0" width="163" height="163"/>
                                                         <color key="backgroundColor" red="0.84705311059999999" green="0.84705334899999996" blue="0.84705179929999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <state key="normal" image="Plus"/>
                                                     </button>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="2kM-jc-085" userLabel="Down Stack View">
-                                                <rect key="frame" x="0.0" y="151.5" width="295" height="143.5"/>
+                                                <rect key="frame" x="0.0" y="171" width="334" height="163"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fvd-VH-cX2" userLabel="AddButton3">
-                                                        <rect key="frame" x="0.0" y="0.0" width="143.5" height="143.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="163" height="163"/>
                                                         <color key="backgroundColor" red="0.84705311059999999" green="0.84705334899999996" blue="0.84705179929999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <state key="normal" image="Plus"/>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rdf-Uq-TTh" userLabel="AddButton4">
-                                                        <rect key="frame" x="151.5" y="0.0" width="143.5" height="143.5"/>
+                                                        <rect key="frame" x="171" y="0.0" width="163" height="163"/>
                                                         <color key="backgroundColor" red="0.84705311059999999" green="0.84705334899999996" blue="0.84705179929999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <state key="normal" image="Plus"/>
                                                     </button>
@@ -231,10 +237,11 @@
                         </variation>
                     </view>
                     <connections>
-                        <outlet property="centralView" destination="w5L-i8-9wJ" id="hq8-ln-HqG"/>
-                        <outlet property="layoutButton1" destination="gB3-QT-fqS" id="Tp6-ja-BaQ"/>
-                        <outlet property="layoutButton2" destination="K5R-RF-otS" id="aeG-Hs-jvI"/>
-                        <outlet property="layoutButton3" destination="mXp-GZ-rN2" id="Hp5-h5-ar8"/>
+                        <outlet property="centralView" destination="w5L-i8-9wJ" id="WbZ-kR-dKl"/>
+                        <outlet property="layoutButton1" destination="gB3-QT-fqS" id="jTM-Cm-utm"/>
+                        <outlet property="layoutButton2" destination="K5R-RF-otS" id="735-sb-ITN"/>
+                        <outlet property="layoutButton3" destination="mXp-GZ-rN2" id="7kl-xd-hLj"/>
+                        <outlet property="swipeText" destination="bKd-a7-s3g" id="ZiO-wc-dmj"/>
                         <outletCollection property="allLayoutButtons" destination="gB3-QT-fqS" collectionClass="NSMutableArray" id="EFF-y4-ZtS"/>
                     </connections>
                 </viewController>
@@ -244,12 +251,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Arrow Left" width="3.5" height="4.5"/>
-        <image name="Arrow Up" width="4.5" height="3.5"/>
-        <image name="Layout 1" width="27" height="27"/>
-        <image name="Layout 2" width="27" height="27"/>
-        <image name="Layout 3" width="27" height="27"/>
-        <image name="Plus" width="13.5" height="13.5"/>
-        <image name="Selected" width="27" height="27"/>
+        <image name="Arrow Left" width="3.3333332538604736" height="4.6666665077209473"/>
+        <image name="Arrow Up" width="4.6666665077209473" height="3.3333332538604736"/>
+        <image name="Layout 1" width="26.666666030883789" height="26.666666030883789"/>
+        <image name="Layout 2" width="26.666666030883789" height="26.666666030883789"/>
+        <image name="Layout 3" width="26.666666030883789" height="26.666666030883789"/>
+        <image name="Plus" width="13.333333015441895" height="13.333333015441895"/>
     </resources>
 </document>
