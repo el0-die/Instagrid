@@ -241,7 +241,7 @@
                         <outlet property="layoutButton1" destination="gB3-QT-fqS" id="jTM-Cm-utm"/>
                         <outlet property="layoutButton2" destination="K5R-RF-otS" id="735-sb-ITN"/>
                         <outlet property="layoutButton3" destination="mXp-GZ-rN2" id="7kl-xd-hLj"/>
-                        <outlet property="swipeText" destination="bKd-a7-s3g" id="ZiO-wc-dmj"/>
+                        <outlet property="swipeMessage" destination="bKd-a7-s3g" id="ZiO-wc-dmj"/>
                         <outletCollection property="CentralView" destination="w5L-i8-9wJ" collectionClass="NSMutableArray" id="454-9t-GsC"/>
                     </connections>
                 </viewController>

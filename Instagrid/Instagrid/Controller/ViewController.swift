@@ -18,7 +18,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var layoutButton2: UIButton!
     @IBOutlet weak var layoutButton3: UIButton!
     
-    @IBOutlet weak var swipeText: UILabel!
+    @IBOutlet weak var swipeMessage: UILabel!
     
 // MARK: - App Running
     
@@ -35,6 +35,21 @@ class ViewController: UIViewController {
         centralView.addGestureRecognizer(swipeLeftGestureRecognizer)
         
             swipeLeftGestureRecognizer.direction = .left
+    }
+    
+    override func didRotate(from fromInterfaceOrientation: UIInterfaceOrientation) {
+        switch UIDevice.current.orientation{
+        case .portrait:
+            swipeMessage.text = "Swipe up to share"
+        case .portraitUpsideDown:
+            swipeMessage.text = "Not supported orientation"
+        case .landscapeLeft:
+            swipeMessage.text = "Swipe left to share"
+        case .landscapeRight:
+            swipeMessage.text = "Swipe left to share"
+        default:
+            swipeMessage.text = "Not supported orientation"
+        }
     }
     
     @objc func swipeCentralView(_ sender: UISwipeGestureRecognizer) {
