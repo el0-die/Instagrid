@@ -27,33 +27,36 @@ class ViewController: UIViewController {
         tappedLayoutButton(layoutButton3)
         
         
-    // Swipe in Portrait Mode
-        let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(swipeCentralView(_:)))
-        centralView.addGestureRecognizer(swipeUp)
-            swipeUp.direction = .up
         
-    //Swipe in Landscape Mode
-        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(swipeCentralView(_:)))
-        centralView.addGestureRecognizer(swipeLeft)
-            swipeLeft.direction = .left
+    // Swipe in Portrait Mode
+//        let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(swipeCentralView(_:)))
+//        centralView.addGestureRecognizer(swipeUp)
+//            swipeUp.direction = .up
+//
+//    //Swipe in Landscape Mode
+//        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(swipeCentralView(_:)))
+//        centralView.addGestureRecognizer(swipeLeft)
+//            swipeLeft.direction = .left
+        
+        let device = UIDevice.current
+        device.beginGeneratingDeviceOrientationNotifications()
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(deviceOrientationChanged), name: Notification.Name("UIInterfaceOrientationChangeSwipeMessage"), object: nil)
     }
 
-    
-    override func didRotate(from interfaceOrientation: UIInterfaceOrientation) {
-        switch UIDevice.current.orientation{
+    private func didRotate(interfaceOrientation: UIInterfaceOrientation) {
+        switch interfaceOrientation{
         case .portrait:
             swipeMessage.text = "Swipe up to share"
-        case .portraitUpsideDown:
-            swipeMessage.text = "Not supported orientation"
-        case .landscapeLeft:
-            swipeMessage.text = "Swipe left to share"
-        case .landscapeRight:
-            swipeMessage.text = "Swipe left to share"
         default:
-            swipeMessage.text = "Not supported orientation..."
+            swipeMessage.text = "Swipe left to share"
         }
     }
     
+    @objc func deviceOrientationChanged() {
+        didRotate(interfaceOrientation: UIApplication.shared.statusBarOrientation)
+    }
+
     @objc func swipeCentralView(_ sender: UISwipeGestureRecognizer) {
         switch sender.state {
         case .began, .changed:
