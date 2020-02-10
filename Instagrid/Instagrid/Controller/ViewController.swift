@@ -24,20 +24,22 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    // Swipe in Portrait Mode
-        let swipeUpGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(swipeCentralView(_:)))
-        centralView.addGestureRecognizer(swipeUpGestureRecognizer)
+        tappedLayoutButton(layoutButton3)
         
-            swipeUpGestureRecognizer.direction = .up
+        
+    // Swipe in Portrait Mode
+        let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(swipeCentralView(_:)))
+        centralView.addGestureRecognizer(swipeUp)
+            swipeUp.direction = .up
         
     //Swipe in Landscape Mode
-        let swipeLeftGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(swipeCentralView(_:)))
-        centralView.addGestureRecognizer(swipeLeftGestureRecognizer)
-        
-            swipeLeftGestureRecognizer.direction = .left
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(swipeCentralView(_:)))
+        centralView.addGestureRecognizer(swipeLeft)
+            swipeLeft.direction = .left
     }
+
     
-    override func didRotate(from fromInterfaceOrientation: UIInterfaceOrientation) {
+    override func didRotate(from interfaceOrientation: UIInterfaceOrientation) {
         switch UIDevice.current.orientation{
         case .portrait:
             swipeMessage.text = "Swipe up to share"
@@ -48,14 +50,31 @@ class ViewController: UIViewController {
         case .landscapeRight:
             swipeMessage.text = "Swipe left to share"
         default:
-            swipeMessage.text = "Not supported orientation"
+            swipeMessage.text = "Not supported orientation..."
         }
     }
     
     @objc func swipeCentralView(_ sender: UISwipeGestureRecognizer) {
-        
+        switch sender.state {
+        case .began, .changed:
+            moveCentralView(sender)
+        case .ended, .cancelled:
+            shareCentralView()
+        default:
+            break
+        }
     }
     
+    func moveCentralView(_ gesture: UISwipeGestureRecognizer) {
+//        if gesture.direction == .up{
+//        centralView.frame = CGRect(x: self.view.frame.size.width - centralView.frame.size.width, y: 0 , width: centralView.frame.size.width, height: centralView.frame.size.height)
+//        }else if gesture.direction == .left{
+//        centralView.frame = CGRect(x: 0, y: centralView.frame.origin.y , width: centralView.frame.size.width, height: centralView.frame.size.height)
+//    }
+    }
+    func shareCentralView() {
+        
+    }
 // MARK: - Layout Button
     
     @IBAction func tappedLayoutButton(_ button: UIButton) {
