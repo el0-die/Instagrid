@@ -29,21 +29,23 @@ class ViewController: UIViewController {
         
         
     // Swipe in Portrait Mode
-//        let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(swipeCentralView(_:)))
-//        centralView.addGestureRecognizer(swipeUp)
-//            swipeUp.direction = .up
+        let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(moveCentralView))
+        centralView.addGestureRecognizer(swipeUp)
+            swipeUp.direction = .up
 //
 //    //Swipe in Landscape Mode
-//        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(swipeCentralView(_:)))
-//        centralView.addGestureRecognizer(swipeLeft)
-//            swipeLeft.direction = .left
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(moveCentralView))
+        centralView.addGestureRecognizer(swipeLeft)
+            swipeLeft.direction = .left
         
         let device = UIDevice.current
         device.beginGeneratingDeviceOrientationNotifications()
         let notificationCenter = NotificationCenter.default
-        notificationCenter.addObserver(self, selector: #selector(deviceOrientationChanged), name: Notification.Name("UIInterfaceOrientationChangeSwipeMessage"), object: nil)
+        notificationCenter.addObserver(self, selector: #selector(deviceOrientationChanged), name: Notification.Name("UIDeviceOrientationDidChangeNotification"), object: nil)
     }
 
+
+    
     private func didRotate(interfaceOrientation: UIInterfaceOrientation) {
         switch interfaceOrientation{
         case .portrait:
@@ -57,23 +59,39 @@ class ViewController: UIViewController {
         didRotate(interfaceOrientation: UIApplication.shared.statusBarOrientation)
     }
 
-    @objc func swipeCentralView(_ sender: UISwipeGestureRecognizer) {
-        switch sender.state {
-        case .began, .changed:
-            moveCentralView(sender)
-        case .ended, .cancelled:
-            shareCentralView()
-        default:
-            break
+//    @objc func swipeCentralView(_ sender: UISwipeGestureRecognizer) {
+//        switch sender.state {
+//        case .began, .changed:
+//            moveCentralView(self)
+//        case .ended, .cancelled:
+//            shareCentralView()
+//        default:
+//            break
+//        }
+//    }
+    private func whichSwipe(interfaceOrientation: UIInterfaceOrientation) {
+           switch interfaceOrientation{
+           case .portrait:
+               upSwipe()
+           default:
+               leftSwipe()
+           }
+       }
+    
+    @objc func upSwipe(){
+         UIView.animate(withDuration: 1) {
+            self.centralView.transform = CGAffineTransform(translationX: 0, y: -self.view.frame.height)
         }
     }
     
-    func moveCentralView(_ gesture: UISwipeGestureRecognizer) {
-//        if gesture.direction == .up{
-//        centralView.frame = CGRect(x: self.view.frame.size.width - centralView.frame.size.width, y: 0 , width: centralView.frame.size.width, height: centralView.frame.size.height)
-//        }else if gesture.direction == .left{
-//        centralView.frame = CGRect(x: 0, y: centralView.frame.origin.y , width: centralView.frame.size.width, height: centralView.frame.size.height)
-//    }
+    @objc func leftSwipe(){
+        UIView.animate(withDuration: 1) {
+            self.centralView.transform = CGAffineTransform(translationX: -self.view.frame.width, y: 0)
+        }
+    }
+    
+    @objc func moveCentralView() {
+        whichSwipe(interfaceOrientation: UIApplication.shared.statusBarOrientation)
     }
     func shareCentralView() {
         
