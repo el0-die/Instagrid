@@ -27,26 +27,23 @@ class ViewController: UIViewController {
         tappedLayoutButton(layoutButton3)
         
         
-        
     // Swipe in Portrait Mode
         let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(moveCentralView))
         centralView.addGestureRecognizer(swipeUp)
             swipeUp.direction = .up
-//
-//    //Swipe in Landscape Mode
+
+    //Swipe in Landscape Mode
         let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(moveCentralView))
         centralView.addGestureRecognizer(swipeLeft)
             swipeLeft.direction = .left
         
-        let device = UIDevice.current
-        device.beginGeneratingDeviceOrientationNotifications()
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self, selector: #selector(deviceOrientationChanged), name: Notification.Name("UIDeviceOrientationDidChangeNotification"), object: nil)
     }
-
-
     
-    private func didRotate(interfaceOrientation: UIInterfaceOrientation) {
+// MARK: - Device Rotation
+    
+    private func didRotate(interfaceOrientation: UIInterfaceOrientation){
         switch interfaceOrientation{
         case .portrait:
             swipeMessage.text = "Swipe up to share"
@@ -69,11 +66,26 @@ class ViewController: UIViewController {
 //            break
 //        }
 //    }
+    
+// MARK: - Swipe CenterView
+//    func respondToSwipeGesture(gesture: UIGestureRecognizer) -> Bool {
+//
+//    if let swipeGesture = gesture as? UISwipeGestureRecognizer {
+//        switch swipeGesture.direction {
+//        case UISwipeGestureRecognizer.Direction.up:
+//            return true
+//        case UISwipeGestureRecognizer.Direction.left:
+//            return false
+//        default:
+//            break
+//                }
+//            }
+//        }
+    
     private func whichSwipe(interfaceOrientation: UIInterfaceOrientation) {
-           switch interfaceOrientation{
-           case .portrait:
+        if interfaceOrientation == .portrait{
                upSwipe()
-           default:
+        } else {
                leftSwipe()
            }
        }
@@ -93,6 +105,7 @@ class ViewController: UIViewController {
     @objc func moveCentralView() {
         whichSwipe(interfaceOrientation: UIApplication.shared.statusBarOrientation)
     }
+    
     func shareCentralView() {
         
     }
