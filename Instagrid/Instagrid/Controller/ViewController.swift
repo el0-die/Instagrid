@@ -17,7 +17,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var layoutButton1: UIButton!
     @IBOutlet weak var layoutButton2: UIButton!
     @IBOutlet weak var layoutButton3: UIButton!
-    
+
     @IBOutlet weak var swipeMessage: UILabel!
     
 // MARK: - App Running
@@ -26,17 +26,16 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         tappedLayoutButton(layoutButton3)
         
-        
     // Swipe in Portrait Mode
-        let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(moveCentralView))
+        let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(whichSwipe(_:)))
         centralView.addGestureRecognizer(swipeUp)
             swipeUp.direction = .up
 
     //Swipe in Landscape Mode
-        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(moveCentralView))
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(whichSwipe(_:)))
         centralView.addGestureRecognizer(swipeLeft)
             swipeLeft.direction = .left
-        
+
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self, selector: #selector(deviceOrientationChanged), name: Notification.Name("UIDeviceOrientationDidChangeNotification"), object: nil)
     }
@@ -68,46 +67,21 @@ class ViewController: UIViewController {
 //    }
     
 // MARK: - Swipe CenterView
-//    func respondToSwipeGesture(gesture: UIGestureRecognizer) -> Bool {
-//
-//    if let swipeGesture = gesture as? UISwipeGestureRecognizer {
-//        switch swipeGesture.direction {
-//        case UISwipeGestureRecognizer.Direction.up:
-//            return true
-//        case UISwipeGestureRecognizer.Direction.left:
-//            return false
-//        default:
-//            break
-//                }
-//            }
-//        }
-    
-    private func whichSwipe(interfaceOrientation: UIInterfaceOrientation) {
-        if interfaceOrientation == .portrait{
-               upSwipe()
-        } else {
-               leftSwipe()
-           }
-       }
-    
-    @objc func upSwipe(){
-         UIView.animate(withDuration: 1) {
+
+    @objc func whichSwipe(_ sender: UISwipeGestureRecognizer){
+        if sender.direction != .left && UIDevice.current.orientation == .portrait {
+            UIView.animate(withDuration: 1) {
             self.centralView.transform = CGAffineTransform(translationX: 0, y: -self.view.frame.height)
-        }
-    }
-    
-    @objc func leftSwipe(){
-        UIView.animate(withDuration: 1) {
+            }
+        }else if sender.direction != .up && UIDevice.current.orientation != .portrait{
+            UIView.animate(withDuration: 1) {
             self.centralView.transform = CGAffineTransform(translationX: -self.view.frame.width, y: 0)
+            }
         }
     }
-    
-    @objc func moveCentralView() {
-        whichSwipe(interfaceOrientation: UIApplication.shared.statusBarOrientation)
-    }
-    
+
     func shareCentralView() {
-        
+
     }
 // MARK: - Layout Button
     
