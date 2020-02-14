@@ -55,16 +55,6 @@ class ViewController: UIViewController {
         didRotate(interfaceOrientation: UIApplication.shared.statusBarOrientation)
     }
 
-//    @objc func swipeCentralView(_ sender: UISwipeGestureRecognizer) {
-//        switch sender.state {
-//        case .began, .changed:
-//            moveCentralView(self)
-//        case .ended, .cancelled:
-//            shareCentralView()
-//        default:
-//            break
-//        }
-//    }
     
 // MARK: - Swipe CenterView
 
@@ -73,15 +63,23 @@ class ViewController: UIViewController {
             UIView.animate(withDuration: 1) {
             self.centralView.transform = CGAffineTransform(translationX: 0, y: -self.view.frame.height)
             }
-        }else if sender.direction != .up &&  UIScreen.main.bounds.size.height < UIScreen.main.bounds.size.width { 
+            shareCentralView()
+        }else if sender.direction != .up &&  UIScreen.main.bounds.size.height < UIScreen.main.bounds.size.width {
             UIView.animate(withDuration: 1) {
             self.centralView.transform = CGAffineTransform(translationX: -self.view.frame.width, y: 0)
             }
+            shareCentralView()
         }
     }
 
     func shareCentralView() {
-
+        let activityApplicationsView = UIActivityViewController(activityItems: [centralView!], applicationActivities: nil)
+        present(activityApplicationsView, animated: true, completion: nil)
+        activityApplicationsView.completionWithItemsHandler = { _ , _ , _, _ in
+            UIView.animate(withDuration: 0.5, animations: {
+                self.centralView.transform = .identity
+            })
+        }
     }
 // MARK: - Layout Button
     
