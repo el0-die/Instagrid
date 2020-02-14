@@ -69,11 +69,11 @@ class ViewController: UIViewController {
 // MARK: - Swipe CenterView
 
     @objc func whichSwipe(_ sender: UISwipeGestureRecognizer){
-        if sender.direction != .left && UIDevice.current.orientation == .portrait {
+        if sender.direction == .up && UIScreen.main.bounds.size.height > UIScreen.main.bounds.size.width {
             UIView.animate(withDuration: 1) {
             self.centralView.transform = CGAffineTransform(translationX: 0, y: -self.view.frame.height)
             }
-        }else if sender.direction != .up && UIDevice.current.orientation != .portrait{
+        }else if sender.direction != .up &&  UIScreen.main.bounds.size.height < UIScreen.main.bounds.size.width { 
             UIView.animate(withDuration: 1) {
             self.centralView.transform = CGAffineTransform(translationX: -self.view.frame.width, y: 0)
             }
