@@ -27,7 +27,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tappedLayoutButton(layoutButton3)
-
+        imagePicker.delegate = self
     // Swipe in Portrait Mode
         let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(whichSwipe(_:)))
         centralView.addGestureRecognizer(swipeUp)
@@ -65,20 +65,6 @@ class ViewController: UIViewController {
             imagePicker.sourceType = .photoLibrary
             imagePicker.mediaTypes = UIImagePickerController.availableMediaTypes(for: .photoLibrary)!
             present(imagePicker, animated: true, completion: nil)
-        }
-
-        func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-            if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-                self.tappedButton?.setImage(pickedImage, for: UIControl.State.normal)
-                self.tappedButton?.imageView?.contentMode = .scaleAspectFill
-                viewIsEmpty = false
-            }
-            dismiss(animated: true, completion: nil)
-        }
-
-        // When user cancelled image picking
-        func imagePickerControllerCancelled(_ picker: UIImagePickerController) {
-            dismiss(animated: true, completion: nil)
         }
 
     // MARK: - Swipe and Share
@@ -132,5 +118,22 @@ class ViewController: UIViewController {
         default:
             break
         }
+    }
+}
+
+extension ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            self.tappedButton?.setImage(pickedImage, for: UIControl.State.normal)
+            self.tappedButton?.imageView?.contentMode = .scaleAspectFill
+            viewIsEmpty = false
+        }
+        dismiss(animated: true, completion: nil)
+    }
+
+    // When user cancelled image picking
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
     }
 }
