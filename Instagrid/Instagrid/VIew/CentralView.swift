@@ -8,26 +8,23 @@
 
 import UIKit
 
-
-
 class CentralView: UIView {
-    
     @IBOutlet var addButton1: UIButton!
     @IBOutlet var addButton2: UIButton!
     @IBOutlet var addButton3: UIButton!
     @IBOutlet var addButton4: UIButton!
-    
+
     enum Layout {
         case topRectangle, bottomRectangle, fourSquare
     }
-    
+
     var layout: Layout = .fourSquare {
-        didSet{
+        didSet {
             setLayout(layout)
         }
     }
-    
-    func setLayout(_ layout:Layout) {
+
+    func setLayout(_ layout: Layout) {
         switch layout {
         case .topRectangle:
             addButton1.isHidden = false
@@ -48,4 +45,3 @@ class CentralView: UIView {
     }
 
 }
-

@@ -138,11 +138,17 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="116" height="116"/>
                                                         <color key="backgroundColor" red="0.84705311059999999" green="0.84705334899999996" blue="0.84705179929999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <state key="normal" image="Plus"/>
+                                                        <connections>
+                                                            <action selector="didTapeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="U1b-EE-kWN"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Z1-zJ-5Cv" userLabel="AddButton2">
                                                         <rect key="frame" x="124" y="0.0" width="116" height="116"/>
                                                         <color key="backgroundColor" red="0.84705311059999999" green="0.84705334899999996" blue="0.84705179929999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <state key="normal" image="Plus"/>
+                                                        <connections>
+                                                            <action selector="didTapeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="feq-KF-Ja7"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -153,11 +159,17 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="116" height="116"/>
                                                         <color key="backgroundColor" red="0.84705311059999999" green="0.84705334899999996" blue="0.84705179929999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <state key="normal" image="Plus"/>
+                                                        <connections>
+                                                            <action selector="didTapeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sYb-8z-B2V"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rdf-Uq-TTh" userLabel="AddButton4">
                                                         <rect key="frame" x="124" y="0.0" width="116" height="116"/>
                                                         <color key="backgroundColor" red="0.84705311059999999" green="0.84705334899999996" blue="0.84705179929999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <state key="normal" image="Plus"/>
+                                                        <connections>
+                                                            <action selector="didTapeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8mc-zo-XBy"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -248,7 +260,10 @@
                         <outlet property="layoutButton2" destination="K5R-RF-otS" id="735-sb-ITN"/>
                         <outlet property="layoutButton3" destination="mXp-GZ-rN2" id="7kl-xd-hLj"/>
                         <outlet property="swipeMessage" destination="bKd-a7-s3g" id="ZiO-wc-dmj"/>
-                        <outletCollection property="CentralView" destination="w5L-i8-9wJ" collectionClass="NSMutableArray" id="454-9t-GsC"/>
+                        <outletCollection property="gridImages" destination="dgX-F3-qsJ" collectionClass="NSMutableArray" id="YGH-iZ-gw4"/>
+                        <outletCollection property="gridImages" destination="4Z1-zJ-5Cv" collectionClass="NSMutableArray" id="Wxg-69-vO4"/>
+                        <outletCollection property="gridImages" destination="Fvd-VH-cX2" collectionClass="NSMutableArray" id="ENm-Pk-DPt"/>
+                        <outletCollection property="gridImages" destination="rdf-Uq-TTh" collectionClass="NSMutableArray" id="GB2-gL-QNs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

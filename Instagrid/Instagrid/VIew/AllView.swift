@@ -18,21 +18,20 @@ class AllView: UIView {
     }
     */
 
-    
     @IBOutlet private var selected1: UIImageView!
     @IBOutlet private var selected2: UIImageView!
     @IBOutlet private var selected3: UIImageView!
-    
+
     enum Layout {
         case topRectangle, bottomRectangle, fourSquare
     }
-    
+
     var layout: Layout = .bottomRectangle {
         didSet {
             setLayout(layout)
         }
     }
-    
+
     private func setLayout(_ layout: Layout) {
         switch layout {
         case .topRectangle:
