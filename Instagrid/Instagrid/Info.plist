@@ -68,6 +68,8 @@
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>This app wants to use your photos.</string>
 	<key>NSCameraUsageDescription</key>
-	<string>This app want to access to your camera.</string>
+	<string>This app wants to access to your camera.</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>This app wants to add a photo in your library.</string>
 </dict>
 </plist>
