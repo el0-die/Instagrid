@@ -21,7 +21,7 @@ class ViewController: UIViewController {
 
     let imagePicker = UIImagePickerController()
     var tappedButton: UIButton?
-    var viewIsEmpty = true
+    var viewIsEmpty = [1: true, 2: true, 3: true, 4: true]
     // MARK: - App Running
 
     override func viewDidLoad() {
@@ -72,22 +72,51 @@ class ViewController: UIViewController {
     // MARK: - Swipe and Share
 
     @objc func whichSwipe(_ sender: UISwipeGestureRecognizer) {
+        checkIfCentralViewEmpty()
         if sender.direction == .up && UIScreen.main.bounds.size.height > UIScreen.main.bounds.size.width {
             UIView.animate(withDuration: 1) {
             self.centralView.transform = CGAffineTransform(translationX: 0, y: -self.view.frame.height)
+                self.shareCentralView()
             }
-            shareCentralView()
         } else if sender.direction != .up &&  UIScreen.main.bounds.size.height < UIScreen.main.bounds.size.width {
             UIView.animate(withDuration: 1) {
             self.centralView.transform = CGAffineTransform(translationX: -self.view.frame.width, y: 0)
+                self.shareCentralView()
             }
-            checkIfCentralViewEmpty()
+        }
+    }
+
+    /// Check if CentralView is empty != sharable or it is not = sharable
+    private func checkIfCentralViewEmpty() {
+        let alert = UIAlertController(title: "Empty Grid", message: "Your grid is fully or partly empty. Complete it.",
+                                      preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { _ in
+                self.centralView.transform = .identity}))
+            if !isCentralViewEmpty() {
+                self.present(alert, animated: true)
+            } else {
+                shareCentralView()
+            }
+        }
+
+    func isCentralViewEmpty() -> Bool {
+        switch centralView.layout {
+        case .topRectangle:
+            return !viewIsEmpty[1]! && !viewIsEmpty[3]! && !viewIsEmpty[4]!
+        case .bottomRectangle:
+            return !viewIsEmpty[1]! && !viewIsEmpty[2]! && !viewIsEmpty[3]!
+        case .fourSquare:
+            return !viewIsEmpty[1]! && !viewIsEmpty[2]! && !viewIsEmpty[3]! && !viewIsEmpty[4]!
         }
     }
 
     private func shareCentralView() {
+        let alert = UIAlertController(title: "Error", message: "Can't convert grid into image",
+                                  preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+
         guard let imageCentralView = convertToImage() else {
-            presentAlert(title: "Error", message: "Can't convert grid to image")
+            self.present(alert, animated: true)
             return
         }
         let activityApplicationsView = UIActivityViewController(activityItems: [imageCentralView],
@@ -100,23 +129,6 @@ class ViewController: UIViewController {
         }
     }
 
-    /// Check if CentralView is empty != sharable or it is not = sharable
-    private func checkIfCentralViewEmpty() {
-         let alert = UIAlertController(title: "Empty View", message: "Are you sure you want to share an empty view ?",
-                                       preferredStyle: .alert)
-         alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { _ in
-             self.shareCentralView() }))
-         alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: { _ in
-             self.centralView.transform = .identity
-         }))
-
-        if viewIsEmpty == true {
-            presentAlert(title: "Error", message: "Grid is not completed")
-        } else {
-             shareCentralView()
-         }
-     }
-    
     /// Convert the central grid into an image
     private func convertToImage() -> UIImage? {
         UIGraphicsBeginImageContextWithOptions(centralView.bounds.size, true, 0)
@@ -160,6 +172,8 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
         if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             self.tappedButton?.setImage(pickedImage, for: UIControl.State.normal)
             self.tappedButton?.imageView?.contentMode = .scaleAspectFill
+            guard let button = self.tappedButton else {return}
+            viewIsEmpty[button.tag] = false
         }
         dismiss(animated: true, completion: nil)
     }
@@ -167,11 +181,5 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
     // When user cancelled image picking
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
-    }
-
-    private func presentAlert(title: String, message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-        present(alert, animated: true)
     }
 }

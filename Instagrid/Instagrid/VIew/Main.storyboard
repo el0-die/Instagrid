@@ -134,7 +134,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="o5V-0N-tuY" userLabel="Top Stack View">
                                                 <rect key="frame" x="0.0" y="0.0" width="240" height="116"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dgX-F3-qsJ" userLabel="AddButton1">
+                                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dgX-F3-qsJ" userLabel="AddButton1">
                                                         <rect key="frame" x="0.0" y="0.0" width="116" height="116"/>
                                                         <color key="backgroundColor" red="0.84705311059999999" green="0.84705334899999996" blue="0.84705179929999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <state key="normal" image="Plus"/>
@@ -142,7 +142,7 @@
                                                             <action selector="didTapeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="U1b-EE-kWN"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Z1-zJ-5Cv" userLabel="AddButton2">
+                                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Z1-zJ-5Cv" userLabel="AddButton2">
                                                         <rect key="frame" x="124" y="0.0" width="116" height="116"/>
                                                         <color key="backgroundColor" red="0.84705311059999999" green="0.84705334899999996" blue="0.84705179929999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <state key="normal" image="Plus"/>
@@ -155,7 +155,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="2kM-jc-085" userLabel="Down Stack View">
                                                 <rect key="frame" x="0.0" y="124" width="240" height="116"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fvd-VH-cX2" userLabel="AddButton3">
+                                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fvd-VH-cX2" userLabel="AddButton3">
                                                         <rect key="frame" x="0.0" y="0.0" width="116" height="116"/>
                                                         <color key="backgroundColor" red="0.84705311059999999" green="0.84705334899999996" blue="0.84705179929999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <state key="normal" image="Plus"/>
@@ -163,7 +163,7 @@
                                                             <action selector="didTapeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sYb-8z-B2V"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rdf-Uq-TTh" userLabel="AddButton4">
+                                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rdf-Uq-TTh" userLabel="AddButton4">
                                                         <rect key="frame" x="124" y="0.0" width="116" height="116"/>
                                                         <color key="backgroundColor" red="0.84705311059999999" green="0.84705334899999996" blue="0.84705179929999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <state key="normal" image="Plus"/>
