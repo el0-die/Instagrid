@@ -21,12 +21,13 @@ class ViewController: UIViewController {
 
     let imagePicker = UIImagePickerController()
     var tappedButton: UIButton?
-    var viewIsEmpty = [1: true, 2: true, 3: true, 4: true]
+    var selectedImage: UIImage?
+    let model = Model()
     // MARK: - App Running
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        tappedLayoutButton(layoutButton3)
+        centralView.layout = model.layout
         imagePicker.delegate = self
     // Swipe in Portrait Mode
         let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(whichSwipe(_:)))
@@ -41,6 +42,11 @@ class ViewController: UIViewController {
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self, selector: #selector(deviceOrientationChanged),
                                        name: Notification.Name("UIDeviceOrientationDidChangeNotification"), object: nil)
+        notificationCenter.addObserver(self, selector: #selector(updateLayout),
+                                       name: Notification.Name("layoutUpdated"), object: nil)
+        notificationCenter.addObserver(self, selector: #selector(updateImage),
+                                       name: Notification.Name("imageUpdated"), object: nil)
+        tappedLayoutButton(layoutButton3)
     }
 
     // MARK: - Device Rotation
@@ -58,6 +64,29 @@ class ViewController: UIViewController {
         didRotate(interfaceOrientation: UIApplication.shared.statusBarOrientation)
     }
 
+    @objc func updateLayout() {
+        switch model.layout {
+        case .topRectangle:
+                layoutButton1.setImage(UIImage(named: "Selected"), for: .normal)
+                layoutButton2.setImage(nil, for: .normal)
+                layoutButton3.setImage(nil, for: .normal)
+                // Adjust CentralView on 1st Layout
+                centralView.layout = .topRectangle
+        case .bottomRectangle:
+                layoutButton1.setImage(nil, for: .normal)
+                layoutButton2.setImage(UIImage(named: "Selected"), for: .normal)
+                layoutButton3.setImage(nil, for: .normal)
+                // Adjust CentralView on 2nd Layout
+                centralView.layout = .bottomRectangle
+        case .fourSquare:
+                layoutButton1.setImage(nil, for: .normal)
+                layoutButton2.setImage(nil, for: .normal)
+                layoutButton3.setImage(UIImage(named: "Selected"), for: .normal)
+                // Adjust CentralView on 3rd Layout
+                centralView.layout = .fourSquare
+            }
+        }
+
     // MARK: - Add Pictures
 
         @IBAction func didTapeButton(_ sender: Any) {
@@ -72,7 +101,6 @@ class ViewController: UIViewController {
     // MARK: - Swipe and Share
 
     @objc func whichSwipe(_ sender: UISwipeGestureRecognizer) {
-        checkIfCentralViewEmpty()
         if sender.direction == .up && UIScreen.main.bounds.size.height > UIScreen.main.bounds.size.width {
             UIView.animate(withDuration: 1) {
             self.centralView.transform = CGAffineTransform(translationX: 0, y: -self.view.frame.height)
@@ -87,38 +115,28 @@ class ViewController: UIViewController {
     }
 
     /// Check if CentralView is empty != sharable or it is not = sharable
-    private func checkIfCentralViewEmpty() {
-        let alert = UIAlertController(title: "Empty Grid", message: "Your grid is fully or partly empty. Complete it.",
-                                      preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { _ in
-                self.centralView.transform = .identity}))
-            if !isCentralViewEmpty() {
-                self.present(alert, animated: true)
-            } else {
-                shareCentralView()
-            }
-        }
-
-    func isCentralViewEmpty() -> Bool {
-        switch centralView.layout {
-        case .topRectangle:
-            return !viewIsEmpty[1]! && !viewIsEmpty[3]! && !viewIsEmpty[4]!
-        case .bottomRectangle:
-            return !viewIsEmpty[1]! && !viewIsEmpty[2]! && !viewIsEmpty[3]!
-        case .fourSquare:
-            return !viewIsEmpty[1]! && !viewIsEmpty[2]! && !viewIsEmpty[3]! && !viewIsEmpty[4]!
-        }
-    }
-
-    private func shareCentralView() {
-        let alert = UIAlertController(title: "Error", message: "Can't convert grid into image",
-                                  preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-
-        guard let imageCentralView = convertToImage() else {
-            self.present(alert, animated: true)
+    @objc func updateImage() {
+        guard let image = self.selectedImage else {
+            presentAlert(title: "Error", message: "No Image Selected")
             return
         }
+        self.tappedButton?.setImage(image, for: UIControl.State.normal)
+        self.tappedButton?.imageView?.contentMode = .scaleAspectFill
+    }
+
+    /// Share grid if full
+    private func shareCentralView() {
+        if model.hasCentralViexEmptyBox {
+            presentAlert(title: "Error", message: "Missing Image")
+            UIView.animate(withDuration: 0.5, animations: {
+            self.centralView.transform = .identity
+            })
+        } else {
+            guard let imageCentralView = convertToImage() else {
+                presentAlert(title: "Error", message: "Can't convert grid into image")
+                return
+        }
+            
         let activityApplicationsView = UIActivityViewController(activityItems: [imageCentralView],
                                                                 applicationActivities: nil)
         present(activityApplicationsView, animated: true, completion: nil)
@@ -126,6 +144,7 @@ class ViewController: UIViewController {
             UIView.animate(withDuration: 0.5, animations: {
                 self.centralView.transform = .identity
             })
+            }
         }
     }
 
@@ -143,43 +162,32 @@ class ViewController: UIViewController {
     @IBAction func tappedLayoutButton(_ button: UIButton) {
         switch button {
         case layoutButton1:
-            layoutButton1.setImage(UIImage(named: "Selected"), for: .normal)
-            layoutButton2.setImage(nil, for: .normal)
-            layoutButton3.setImage(nil, for: .normal)
-            // Adjust CentralView on 1st Layout
-            centralView.layout = .topRectangle
+            model.layout = .topRectangle
         case layoutButton2:
-            layoutButton1.setImage(nil, for: .normal)
-            layoutButton2.setImage(UIImage(named: "Selected"), for: .normal)
-            layoutButton3.setImage(nil, for: .normal)
-            // Adjust CentralView on 2nd Layout
-            centralView.layout = .bottomRectangle
+            model.layout = .bottomRectangle
         case layoutButton3:
-            layoutButton1.setImage(nil, for: .normal)
-            layoutButton2.setImage(nil, for: .normal)
-            layoutButton3.setImage(UIImage(named: "Selected"), for: .normal)
-            // Adjust CentralView on 3rd Layout
-            centralView.layout = .fourSquare
+            model.layout = .fourSquare
         default:
             break
         }
     }
 }
 
+    // MARK: - Extension
+
 extension ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            self.tappedButton?.setImage(pickedImage, for: UIControl.State.normal)
-            self.tappedButton?.imageView?.contentMode = .scaleAspectFill
-            guard let button = self.tappedButton else {return}
-            viewIsEmpty[button.tag] = false
+            selectedImage = pickedImage
+            model.emptyBoxes[self.tappedButton!.tag] = false
         }
         dismiss(animated: true, completion: nil)
     }
 
-    // When user cancelled image picking
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        dismiss(animated: true, completion: nil)
+    private func presentAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        present(alert, animated: true)
     }
 }

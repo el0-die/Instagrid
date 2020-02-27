@@ -14,10 +14,6 @@ class CentralView: UIView {
     @IBOutlet var addButton3: UIButton!
     @IBOutlet var addButton4: UIButton!
 
-    enum Layout {
-        case topRectangle, bottomRectangle, fourSquare
-    }
-
     var layout: Layout = .fourSquare {
         didSet {
             setLayout(layout)
@@ -43,5 +39,4 @@ class CentralView: UIView {
             addButton4.isHidden = false
         }
     }
-
 }

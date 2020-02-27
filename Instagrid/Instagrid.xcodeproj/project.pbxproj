@@ -17,6 +17,7 @@
 		5D82D46823E1EF80009402DA /* ThirstySoftRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5D82D46723E1EF80009402DA /* ThirstySoftRegular.otf */; };
 		5D82D46A23E1EF90009402DA /* Delm-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5D82D46923E1EF90009402DA /* Delm-Medium.otf */; };
 		5D82D46C23E207DA009402DA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D82D46B23E207DA009402DA /* Main.storyboard */; };
+		5D9DCF5D2406D0BD00EDCD00 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9DCF5C2406D0BD00EDCD00 /* Model.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		5D82D46723E1EF80009402DA /* ThirstySoftRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ThirstySoftRegular.otf; sourceTree = "<group>"; };
 		5D82D46923E1EF90009402DA /* Delm-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Delm-Medium.otf"; sourceTree = "<group>"; };
 		5D82D46B23E207DA009402DA /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		5D9DCF5C2406D0BD00EDCD00 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,18 +68,11 @@
 			children = (
 				5D82D45B23E1EB87009402DA /* Info.plist */,
 				5D82D46423E1EF18009402DA /* Supporting Files */,
+				5D9DCF5B2406D0AA00EDCD00 /* Model */,
 				5D82D46323E1EEF7009402DA /* Controller */,
 				5D82D46223E1EEF0009402DA /* VIew */,
-				5D82D46123E1EEE9009402DA /* Model */,
 			);
 			path = Instagrid;
-			sourceTree = "<group>";
-		};
-		5D82D46123E1EEE9009402DA /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		5D82D46223E1EEF0009402DA /* VIew */ = {
@@ -109,6 +104,14 @@
 				5D82D45623E1EB87009402DA /* Assets.xcassets */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5D9DCF5B2406D0AA00EDCD00 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5D9DCF5C2406D0BD00EDCD00 /* Model.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -206,6 +209,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D9DCF5D2406D0BD00EDCD00 /* Model.swift in Sources */,
 				5D505C0C23EC930500A604E6 /* CentralView.swift in Sources */,
 				5D82D45223E1EB85009402DA /* ViewController.swift in Sources */,
 				5D82D44E23E1EB85009402DA /* AppDelegate.swift in Sources */,
