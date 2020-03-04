@@ -25,7 +25,7 @@ class Model {
         }
     }
 
-    var hasCentralViexEmptyBox: Bool {
+    var hasCentralViewEmptyBox: Bool {
         switch layout {
         case .topRectangle:
             return emptyBoxes[1]! || emptyBoxes[3]! || emptyBoxes[4]!

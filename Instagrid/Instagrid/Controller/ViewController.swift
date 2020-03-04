@@ -23,6 +23,7 @@ class ViewController: UIViewController {
     var tappedButton: UIButton?
     var selectedImage: UIImage?
     let model = Model()
+    
     // MARK: - App Running
 
     override func viewDidLoad() {
@@ -102,15 +103,15 @@ class ViewController: UIViewController {
 
     @objc func whichSwipe(_ sender: UISwipeGestureRecognizer) {
         if sender.direction == .up && UIScreen.main.bounds.size.height > UIScreen.main.bounds.size.width {
-            UIView.animate(withDuration: 1) {
+            CentralView.animate(withDuration: 1) {
             self.centralView.transform = CGAffineTransform(translationX: 0, y: -self.view.frame.height)
                 self.shareCentralView()
             }
         } else if sender.direction != .up &&  UIScreen.main.bounds.size.height < UIScreen.main.bounds.size.width {
-            UIView.animate(withDuration: 1) {
+            CentralView.animate(withDuration: 1) {
             self.centralView.transform = CGAffineTransform(translationX: -self.view.frame.width, y: 0)
-                self.shareCentralView()
             }
+            self.shareCentralView()
         }
     }
 
@@ -126,22 +127,21 @@ class ViewController: UIViewController {
 
     /// Share grid if full
     private func shareCentralView() {
-        if model.hasCentralViexEmptyBox {
+        if model.hasCentralViewEmptyBox {
             presentAlert(title: "Error", message: "Missing Image")
-            UIView.animate(withDuration: 0.5, animations: {
+            CentralView.animate(withDuration: 0.5, animations: {
             self.centralView.transform = .identity
             })
         } else {
             guard let imageCentralView = convertToImage() else {
                 presentAlert(title: "Error", message: "Can't convert grid into image")
                 return
-        }
-            
+            }
         let activityApplicationsView = UIActivityViewController(activityItems: [imageCentralView],
                                                                 applicationActivities: nil)
         present(activityApplicationsView, animated: true, completion: nil)
         activityApplicationsView.completionWithItemsHandler = { _, _, _, _ in
-            UIView.animate(withDuration: 0.5, animations: {
+            CentralView.animate(withDuration: 0.5, animations: {
                 self.centralView.transform = .identity
             })
             }
