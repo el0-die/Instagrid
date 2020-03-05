@@ -23,7 +23,7 @@ class ViewController: UIViewController {
     var tappedButton: UIButton?
     var selectedImage: UIImage?
     let model = Model()
-    
+
     // MARK: - App Running
 
     override func viewDidLoad() {
