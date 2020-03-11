@@ -28,11 +28,20 @@ class Model {
     var hasCentralViewEmptyBox: Bool {
         switch layout {
         case .topRectangle:
-            return emptyBoxes[1]! || emptyBoxes[3]! || emptyBoxes[4]!
+            return checkEmpty(dictionnary: emptyBoxes, positions: [1, 3, 4])
         case .bottomRectangle:
-            return emptyBoxes[1]! || emptyBoxes[2]! || emptyBoxes[3]!
+            return checkEmpty(dictionnary: emptyBoxes, positions: [1, 2, 3])
         case .fourSquare:
-            return emptyBoxes[1]! || emptyBoxes[2]! || emptyBoxes[3]! || emptyBoxes[4]!
+            return checkEmpty(dictionnary: emptyBoxes, positions: [1, 2, 3, 4])
         }
+    }
+
+    private func checkEmpty(dictionnary: [Int: Bool], positions: [Int]) -> Bool {
+        for (key, value) in dictionnary {
+            if positions.contains(key) && value {
+                return true
+            }
+        }
+        return false
     }
 }

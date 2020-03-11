@@ -65,28 +65,43 @@ class ViewController: UIViewController {
         didRotate(interfaceOrientation: UIApplication.shared.statusBarOrientation)
     }
 
+        // MARK: - Layout Button
+
+    @IBAction func tappedLayoutButton(_ button: UIButton) {
+        switch button {
+        case layoutButton1:
+            model.layout = .topRectangle
+        case layoutButton2:
+            model.layout = .bottomRectangle
+        case layoutButton3:
+            model.layout = .fourSquare
+        default:
+            break
+        }
+    }
+
     @objc func updateLayout() {
         switch model.layout {
         case .topRectangle:
-                layoutButton1.setImage(UIImage(named: "Selected"), for: .normal)
-                layoutButton2.setImage(nil, for: .normal)
-                layoutButton3.setImage(nil, for: .normal)
-                // Adjust CentralView on 1st Layout
-                centralView.layout = .topRectangle
+            layoutButton1.setImage(UIImage(named: "Selected"), for: .normal)
+            layoutButton2.setImage(nil, for: .normal)
+            layoutButton3.setImage(nil, for: .normal)
+            // Adjust CentralView on 1st Layout
+            centralView.layout = .topRectangle
         case .bottomRectangle:
-                layoutButton1.setImage(nil, for: .normal)
-                layoutButton2.setImage(UIImage(named: "Selected"), for: .normal)
-                layoutButton3.setImage(nil, for: .normal)
-                // Adjust CentralView on 2nd Layout
-                centralView.layout = .bottomRectangle
+            layoutButton1.setImage(nil, for: .normal)
+            layoutButton2.setImage(UIImage(named: "Selected"), for: .normal)
+            layoutButton3.setImage(nil, for: .normal)
+            // Adjust CentralView on 2nd Layout
+            centralView.layout = .bottomRectangle
         case .fourSquare:
-                layoutButton1.setImage(nil, for: .normal)
-                layoutButton2.setImage(nil, for: .normal)
-                layoutButton3.setImage(UIImage(named: "Selected"), for: .normal)
-                // Adjust CentralView on 3rd Layout
-                centralView.layout = .fourSquare
-            }
+            layoutButton1.setImage(nil, for: .normal)
+            layoutButton2.setImage(nil, for: .normal)
+            layoutButton3.setImage(UIImage(named: "Selected"), for: .normal)
+            // Adjust CentralView on 3rd Layout
+            centralView.layout = .fourSquare
         }
+    }
 
     // MARK: - Add Pictures
 
@@ -98,6 +113,16 @@ class ViewController: UIViewController {
             imagePicker.mediaTypes = UIImagePickerController.availableMediaTypes(for: .photoLibrary)!
             present(imagePicker, animated: true, completion: nil)
         }
+
+    /// Check if CentralView is empty != sharable or it is not = sharable
+    @objc func updateImage() {
+        guard let image = self.selectedImage else {
+            presentAlert(title: "Error", message: "No Image Selected")
+            return
+        }
+        self.tappedButton?.setImage(image, for: UIControl.State.normal)
+        self.tappedButton?.imageView?.contentMode = .scaleAspectFill
+    }
 
     // MARK: - Swipe and Share
 
@@ -113,16 +138,6 @@ class ViewController: UIViewController {
             }
             self.shareCentralView()
         }
-    }
-
-    /// Check if CentralView is empty != sharable or it is not = sharable
-    @objc func updateImage() {
-        guard let image = self.selectedImage else {
-            presentAlert(title: "Error", message: "No Image Selected")
-            return
-        }
-        self.tappedButton?.setImage(image, for: UIControl.State.normal)
-        self.tappedButton?.imageView?.contentMode = .scaleAspectFill
     }
 
     /// Share grid if full
@@ -155,21 +170,6 @@ class ViewController: UIViewController {
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return image
-    }
-
-    // MARK: - Layout Button
-
-    @IBAction func tappedLayoutButton(_ button: UIButton) {
-        switch button {
-        case layoutButton1:
-            model.layout = .topRectangle
-        case layoutButton2:
-            model.layout = .bottomRectangle
-        case layoutButton3:
-            model.layout = .fourSquare
-        default:
-            break
-        }
     }
 }
 
