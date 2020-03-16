@@ -30,16 +30,18 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         centralView.layout = model.layout
         imagePicker.delegate = self
-    // Swipe in Portrait Mode
+        
+        // Swipe in Portrait Mode
         let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(whichSwipe(_:)))
         centralView.addGestureRecognizer(swipeUp)
             swipeUp.direction = .up
 
-    // Swipe in Landscape Mode
+        // Swipe in Landscape Mode
         let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(whichSwipe(_:)))
         centralView.addGestureRecognizer(swipeLeft)
             swipeLeft.direction = .left
 
+        // Notification listener
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self, selector: #selector(deviceOrientationChanged),
                                        name: Notification.Name("UIDeviceOrientationDidChangeNotification"), object: nil)
@@ -47,11 +49,13 @@ class ViewController: UIViewController {
                                        name: Notification.Name("layoutUpdated"), object: nil)
         notificationCenter.addObserver(self, selector: #selector(updateImage),
                                        name: Notification.Name("imageUpdated"), object: nil)
+        //Default Layout selected
         tappedLayoutButton(layoutButton3)
     }
 
     // MARK: - Device Rotation
 
+    // Change swipe text depending on screen orientation
     private func didRotate(interfaceOrientation: UIInterfaceOrientation) {
         switch interfaceOrientation {
         case .portrait:
@@ -61,12 +65,14 @@ class ViewController: UIViewController {
         }
     }
 
+    // Get orientation
     @objc func deviceOrientationChanged() {
         didRotate(interfaceOrientation: UIApplication.shared.statusBarOrientation)
     }
 
         // MARK: - Layout Button
 
+    // Say to Model which LayoutBtn tapped
     @IBAction func tappedLayoutButton(_ button: UIButton) {
         switch button {
         case layoutButton1:
@@ -80,6 +86,7 @@ class ViewController: UIViewController {
         }
     }
 
+    // Mark the selected layout button as it
     @objc func updateLayout() {
         switch model.layout {
         case .topRectangle:
@@ -105,7 +112,8 @@ class ViewController: UIViewController {
 
     // MARK: - Add Pictures
 
-        @IBAction func didTapeButton(_ sender: Any) {
+    // Open library when AddButton tapped
+    @IBAction func didTapeButton(_ sender: Any) {
             let alert = UIAlertController(title: "Choose a photo", message: "", preferredStyle: .actionSheet)
             alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
             self.tappedButton = sender as? UIButton
@@ -114,7 +122,7 @@ class ViewController: UIViewController {
             present(imagePicker, animated: true, completion: nil)
         }
 
-    /// Check if CentralView is empty != sharable or it is not = sharable
+    // Set image from library into selected box
     @objc func updateImage() {
         guard let image = self.selectedImage else {
             presentAlert(title: "Error", message: "No Image Selected")
@@ -126,6 +134,7 @@ class ViewController: UIViewController {
 
     // MARK: - Swipe and Share
 
+    // Manage swipe direction depending on screen orientation
     @objc func whichSwipe(_ sender: UISwipeGestureRecognizer) {
         if sender.direction == .up && UIScreen.main.bounds.size.height > UIScreen.main.bounds.size.width {
             CentralView.animate(withDuration: 1) {
@@ -140,7 +149,7 @@ class ViewController: UIViewController {
         }
     }
 
-    /// Share grid if full
+    // Share grid if full
     private func shareCentralView() {
         if model.hasCentralViewEmptyBox {
             presentAlert(title: "Error", message: "Missing Image")
@@ -163,7 +172,7 @@ class ViewController: UIViewController {
         }
     }
 
-    /// Convert the central grid into an image
+    // Convert the central grid into an image
     private func convertToImage() -> UIImage? {
         UIGraphicsBeginImageContextWithOptions(centralView.bounds.size, true, 0)
         centralView.drawHierarchy(in: centralView.bounds, afterScreenUpdates: true)

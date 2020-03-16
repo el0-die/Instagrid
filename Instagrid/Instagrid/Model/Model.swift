@@ -25,6 +25,7 @@ class Model {
         }
     }
 
+    // Check if CentralView is empty != sharable or it is not = sharable
     var hasCentralViewEmptyBox: Bool {
         switch layout {
         case .topRectangle:
@@ -36,6 +37,7 @@ class Model {
         }
     }
 
+    // Check if a box is empty or not
     private func checkEmpty(dictionnary: [Int: Bool], positions: [Int]) -> Bool {
         for (key, value) in dictionnary {
             if positions.contains(key) && value {
