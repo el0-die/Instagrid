@@ -30,7 +30,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         centralView.layout = model.layout
         imagePicker.delegate = self
-        
+
         // Swipe in Portrait Mode
         let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(whichSwipe(_:)))
         centralView.addGestureRecognizer(swipeUp)

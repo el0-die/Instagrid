@@ -78,8 +78,8 @@
 		5D82D46223E1EEF0009402DA /* VIew */ = {
 			isa = PBXGroup;
 			children = (
+				5D82D45823E1EB87009402DA /* LaunchScreen.storyboard */,
 				5D82D46B23E207DA009402DA /* Main.storyboard */,
-				5D505C0B23EC930500A604E6 /* CentralView.swift */,
 			);
 			path = VIew;
 			sourceTree = "<group>";
@@ -88,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				5D82D45123E1EB85009402DA /* ViewController.swift */,
+				5D505C0B23EC930500A604E6 /* CentralView.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -95,7 +96,6 @@
 		5D82D46423E1EF18009402DA /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				5D82D45823E1EB87009402DA /* LaunchScreen.storyboard */,
 				5D82D44D23E1EB85009402DA /* AppDelegate.swift */,
 				5D82D44F23E1EB85009402DA /* SceneDelegate.swift */,
 				5D82D46523E1EF37009402DA /* Default-568h@2x.png */,
