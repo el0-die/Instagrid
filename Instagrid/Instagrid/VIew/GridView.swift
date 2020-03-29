@@ -21,7 +21,6 @@ class GridView: UIView {
     @IBOutlet private var button1: UIButton!
     @IBOutlet private var button2: UIButton!
     @IBOutlet private var button3: UIButton!
-    
     @IBOutlet private var selected1: UIImageView!
     @IBOutlet private var selected2: UIImageView!
     @IBOutlet private var selected3: UIImageView!

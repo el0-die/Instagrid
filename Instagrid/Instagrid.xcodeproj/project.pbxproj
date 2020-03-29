@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D505C0C23EC930500A604E6 /* CentralView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D505C0B23EC930500A604E6 /* CentralView.swift */; };
 		5D82D44E23E1EB85009402DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D82D44D23E1EB85009402DA /* AppDelegate.swift */; };
 		5D82D45023E1EB85009402DA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D82D44F23E1EB85009402DA /* SceneDelegate.swift */; };
 		5D82D45223E1EB85009402DA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D82D45123E1EB85009402DA /* ViewController.swift */; };
@@ -16,9 +17,11 @@
 		5D82D46823E1EF80009402DA /* ThirstySoftRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5D82D46723E1EF80009402DA /* ThirstySoftRegular.otf */; };
 		5D82D46A23E1EF90009402DA /* Delm-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5D82D46923E1EF90009402DA /* Delm-Medium.otf */; };
 		5D82D46C23E207DA009402DA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D82D46B23E207DA009402DA /* Main.storyboard */; };
+		5D9DCF5D2406D0BD00EDCD00 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9DCF5C2406D0BD00EDCD00 /* Model.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5D505C0B23EC930500A604E6 /* CentralView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CentralView.swift; sourceTree = "<group>"; };
 		5D82D44A23E1EB85009402DA /* Instagrid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instagrid.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D82D44D23E1EB85009402DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5D82D44F23E1EB85009402DA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -30,6 +33,7 @@
 		5D82D46723E1EF80009402DA /* ThirstySoftRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ThirstySoftRegular.otf; sourceTree = "<group>"; };
 		5D82D46923E1EF90009402DA /* Delm-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Delm-Medium.otf"; sourceTree = "<group>"; };
 		5D82D46B23E207DA009402DA /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		5D9DCF5C2406D0BD00EDCD00 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,23 +68,17 @@
 			children = (
 				5D82D45B23E1EB87009402DA /* Info.plist */,
 				5D82D46423E1EF18009402DA /* Supporting Files */,
+				5D9DCF5B2406D0AA00EDCD00 /* Model */,
 				5D82D46323E1EEF7009402DA /* Controller */,
 				5D82D46223E1EEF0009402DA /* VIew */,
-				5D82D46123E1EEE9009402DA /* Model */,
 			);
 			path = Instagrid;
-			sourceTree = "<group>";
-		};
-		5D82D46123E1EEE9009402DA /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		5D82D46223E1EEF0009402DA /* VIew */ = {
 			isa = PBXGroup;
 			children = (
+				5D82D45823E1EB87009402DA /* LaunchScreen.storyboard */,
 				5D82D46B23E207DA009402DA /* Main.storyboard */,
 			);
 			path = VIew;
@@ -90,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				5D82D45123E1EB85009402DA /* ViewController.swift */,
+				5D505C0B23EC930500A604E6 /* CentralView.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -97,7 +96,6 @@
 		5D82D46423E1EF18009402DA /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				5D82D45823E1EB87009402DA /* LaunchScreen.storyboard */,
 				5D82D44D23E1EB85009402DA /* AppDelegate.swift */,
 				5D82D44F23E1EB85009402DA /* SceneDelegate.swift */,
 				5D82D46523E1EF37009402DA /* Default-568h@2x.png */,
@@ -106,6 +104,14 @@
 				5D82D45623E1EB87009402DA /* Assets.xcassets */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5D9DCF5B2406D0AA00EDCD00 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5D9DCF5C2406D0BD00EDCD00 /* Model.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -118,6 +124,7 @@
 				5D82D44623E1EB85009402DA /* Sources */,
 				5D82D44723E1EB85009402DA /* Frameworks */,
 				5D82D44823E1EB85009402DA /* Resources */,
+				5D9DCF4123F6FFD500EDCD00 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -177,11 +184,33 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		5D9DCF4123F6FFD500EDCD00 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		5D82D44623E1EB85009402DA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D9DCF5D2406D0BD00EDCD00 /* Model.swift in Sources */,
+				5D505C0C23EC930500A604E6 /* CentralView.swift in Sources */,
 				5D82D45223E1EB85009402DA /* ViewController.swift in Sources */,
 				5D82D44E23E1EB85009402DA /* AppDelegate.swift in Sources */,
 				5D82D45023E1EB85009402DA /* SceneDelegate.swift in Sources */,
@@ -252,7 +281,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -306,7 +335,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -322,6 +351,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Instagrid/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -329,7 +359,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = desmoulin.elodie.Instagrid;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -339,6 +369,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Instagrid/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -346,7 +377,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = desmoulin.elodie.Instagrid;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
