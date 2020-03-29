@@ -29,17 +29,17 @@ class Model {
     var hasCentralViewEmptyBox: Bool {
         switch layout {
         case .topRectangle:
-            return checkEmpty(dictionnary: emptyBoxes, positions: [1, 3, 4])
+            return checkEmpty(positions: [1, 3, 4])
         case .bottomRectangle:
-            return checkEmpty(dictionnary: emptyBoxes, positions: [1, 2, 3])
+            return checkEmpty(positions: [1, 2, 3])
         case .fourSquare:
-            return checkEmpty(dictionnary: emptyBoxes, positions: [1, 2, 3, 4])
+            return checkEmpty(positions: [1, 2, 3, 4])
         }
     }
 
     // Check if a box is empty or not
-    private func checkEmpty(dictionnary: [Int: Bool], positions: [Int]) -> Bool {
-        for (key, value) in dictionnary {
+    private func checkEmpty(positions: [Int]) -> Bool {
+        for (key, value) in emptyBoxes {
             if positions.contains(key) && value {
                 return true
             }

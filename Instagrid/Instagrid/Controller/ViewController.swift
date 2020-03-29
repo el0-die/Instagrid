@@ -19,6 +19,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var swipeMessage: UILabel!
     @IBOutlet var gridImages: [UIButton]!
 
+    // MARK: - Properties
+    
     let imagePicker = UIImagePickerController()
     var tappedButton: UIButton?
     var selectedImage: UIImage?
@@ -139,9 +141,9 @@ class ViewController: UIViewController {
         if sender.direction == .up && UIScreen.main.bounds.size.height > UIScreen.main.bounds.size.width {
             CentralView.animate(withDuration: 1) {
             self.centralView.transform = CGAffineTransform(translationX: 0, y: -self.view.frame.height)
-                self.shareCentralView()
             }
-        } else if sender.direction != .up &&  UIScreen.main.bounds.size.height < UIScreen.main.bounds.size.width {
+            self.shareCentralView()
+        } else if sender.direction == .left &&  UIScreen.main.bounds.size.height < UIScreen.main.bounds.size.width {
             CentralView.animate(withDuration: 1) {
             self.centralView.transform = CGAffineTransform(translationX: -self.view.frame.width, y: 0)
             }
