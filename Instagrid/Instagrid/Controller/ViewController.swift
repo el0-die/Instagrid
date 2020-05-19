@@ -10,7 +10,9 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    // MARK: - Outlets
+    // MARK: - Public
+
+    // MARK: Outlet
 
     @IBOutlet weak var centralView: CentralView!
     @IBOutlet weak var layoutButton1: UIButton!
@@ -19,14 +21,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var swipeMessage: UILabel!
     @IBOutlet var gridImages: [UIButton]!
 
-    // MARK: - Properties
-    
-    let imagePicker = UIImagePickerController()
-    var tappedButton: UIButton?
-    var selectedImage: UIImage?
-    let model = Model()
-
-    // MARK: - App Running
+    // MARK: App Running
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,30 +47,20 @@ class ViewController: UIViewController {
         notificationCenter.addObserver(self, selector: #selector(updateImage),
                                        name: Notification.Name("imageUpdated"), object: nil)
         //Default Layout selected
-        tappedLayoutButton(layoutButton3)
+        didTapLayoutButton(layoutButton3)
     }
 
-    // MARK: - Device Rotation
-
-    // Change swipe text depending on screen orientation
-    private func didRotate(interfaceOrientation: UIInterfaceOrientation) {
-        switch interfaceOrientation {
-        case .portrait:
-            swipeMessage.text = "Swipe up to share"
-        default:
-            swipeMessage.text = "Swipe left to share"
-        }
-    }
+    // MARK: Device Rotation
 
     // Get orientation
     @objc func deviceOrientationChanged() {
         didRotate(interfaceOrientation: UIApplication.shared.statusBarOrientation)
     }
 
-        // MARK: - Layout Button
+    // MARK: Layout Button
 
     // Say to Model which LayoutBtn tapped
-    @IBAction func tappedLayoutButton(_ button: UIButton) {
+    @IBAction func didTapLayoutButton(_ button: UIButton) {
         switch button {
         case layoutButton1:
             model.layout = .topRectangle
@@ -112,7 +97,7 @@ class ViewController: UIViewController {
         }
     }
 
-    // MARK: - Add Pictures
+    // MARK: Add Pictures
 
     // Open library when AddButton tapped
     @IBAction func didTapeButton(_ sender: Any) {
@@ -134,7 +119,7 @@ class ViewController: UIViewController {
         self.tappedButton?.imageView?.contentMode = .scaleAspectFill
     }
 
-    // MARK: - Swipe and Share
+    // MARK: Swipe and Share
 
     // Manage swipe direction depending on screen orientation
     @objc func whichSwipe(_ sender: UISwipeGestureRecognizer) {
@@ -148,6 +133,23 @@ class ViewController: UIViewController {
             self.centralView.transform = CGAffineTransform(translationX: -self.view.frame.width, y: 0)
             }
             self.shareCentralView()
+        }
+    }
+
+    // MARK: - Private
+
+    private let imagePicker = UIImagePickerController()
+    private var tappedButton: UIButton?
+    private var selectedImage: UIImage?
+    private let model = Model()
+
+    // Change swipe text depending on screen orientation
+    private func didRotate(interfaceOrientation: UIInterfaceOrientation) {
+        switch interfaceOrientation {
+        case .portrait:
+            swipeMessage.text = "Swipe up to share"
+        default:
+            swipeMessage.text = "Swipe left to share"
         }
     }
 
@@ -197,7 +199,7 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
     }
 
     private func presentAlert(title: String, message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
         present(alert, animated: true)
     }

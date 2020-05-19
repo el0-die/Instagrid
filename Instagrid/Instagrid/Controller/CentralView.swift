@@ -20,7 +20,7 @@ class CentralView: UIView {
         }
     }
 
-    func setLayout(_ layout: Layout) {
+    private func setLayout(_ layout: Layout) {
         switch layout {
         case .topRectangle:
             addButton1.isHidden = false
